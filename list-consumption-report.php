@@ -19,7 +19,7 @@ $today = date('d/m/Y H:i:s');
 		<link href="css/coffeeometer.css" rel="stylesheet" />
 	</head>
 
-	<body style="background-color: #fafafa">
+	<body>
 		<div class="container main">
 			<div class="row">
 				<div class="col" id="report-header">
@@ -86,10 +86,48 @@ $today = date('d/m/Y H:i:s');
 						<td>R$ <?=number_format($total_price,2,',','.')?></td>
 					</tr>
 				</table>
+				<div id="piechart" style="width: 900px; height: 500px;"></div>
 			</div>
 		</div>
 	</body>
 </html>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+	google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
+
+	function drawChart() {
+
+		var data = google.visualization.arrayToDataTable([
+			['Dia da Semana', 'Quantidade'],
+			<?php
+			$week_day_consumption = listConsumptionByWeekDay($conn);
+			foreach ($week_day_consumption as $consumption)
+			{
+				$day = $consumption['week_day'];
+				$qty = $consumption['qty'];
+				echo "['{$day} ({$qty})', {$qty}],";
+			}
+			?>
+		]);
+
+		var options = {
+			title: 'Cafés por dia da semana',
+			is3D: true
+		};
+
+		var chart_area = document.getElementById('piechart');
+		var chart = new google.visualization.PieChart(chart_area);
+
+		google.visualization.events.addListener(chart, 'ready', function()
+		{
+			chart_area.innerHTML = '<img src="' + chart.getImageURI() + '">';
+		});
+
+		chart.draw(data, options);
+	}
+</script>
 
 <script>
 function createPDF()

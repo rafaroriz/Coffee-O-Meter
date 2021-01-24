@@ -17,6 +17,20 @@ function listConsumption($conn)
     return $consumption;
 }
 
+function listConsumptionByWeekDay($conn)
+{
+    $consumption = array();
+    $query = "select week_day, count(id) as qty from consumption group by week_day";
+    $instruction = $conn->prepare($query);
+    $instruction->execute();
+    $response = $instruction->get_result();
+    while ($entry = $response->fetch_assoc())
+    {
+        array_push($consumption, $entry);
+    }
+    return $consumption;
+}
+
 function addConsumption($conn, $date, $hour, $coffee_id, $qty, $price, $week_day)
 {
     $query = "insert into consumption (date, hour, coffee_id, quantity, price, week_day) values (?,?,?,?,?,?)";
