@@ -1,4 +1,5 @@
 <?php
+include 'user.php';
 include 'connect.php';
 include 'user-db.php';
 
@@ -10,6 +11,7 @@ $redirect = "Location: login-error.php";
 $user = validateUser($conn, $email, $password);
 if ($user)
 {
+    $_SESSION["USER"]["EMAIL"] = $email;
     $redirect = "Location: list-consumption.php";
 }
 

@@ -1,6 +1,9 @@
 <?php
 date_default_timezone_set('Brazil/East');
 
+include('user.php');
+include 'validate-user-access.php';
+
 include 'connect.php';
 include 'consumption-db.php';
 

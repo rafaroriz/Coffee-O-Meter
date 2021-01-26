@@ -2,6 +2,9 @@
 include 'connect.php';
 include 'consumption-db.php';
 
+include('user.php');
+include 'validate-user-access.php';
+
 $sheet_file = "my-consumption.xls";
 
 $html = "<meta charset='utf-8'>";
