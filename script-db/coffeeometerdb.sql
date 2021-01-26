@@ -1,7 +1,7 @@
 create database if not exists coffeeometerdb character set utf8
 collate utf8_general_ci;
 
-use coffeometerdb;
+use coffeeometerdb;
 
 create table type (
 	id integer auto_increment primary key,
@@ -26,3 +26,9 @@ create table consumption (
 	coffee_id integer,
 	constraint foreign key (coffee_id) references coffee (id)
 ) engine=InnoDB;
+
+create table app_user (
+    id integer auto_increment primary key,
+    email varchar(30) not null,
+    password varchar(120) not null
+) engine=INNODB;

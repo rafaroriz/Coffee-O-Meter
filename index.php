@@ -1,3 +1,3 @@
 <?php
-include 'menu-header.php';
-include 'footer.php';
+header("Location: login-form.php");
+die();
