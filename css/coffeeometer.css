@@ -2,3 +2,11 @@
     padding: 30px 15px;
     text-align: center;
 }
+
+.page_break {
+    page-break-before: always;
+}
+
+.table_condensed {
+    font-size: 10px;
+}

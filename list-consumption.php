@@ -15,15 +15,17 @@ include 'consumption-db.php';
 		</div>
 	</div><br/>
 	<table class="table table-striped table-bordered">
-		<tr>
-			<th>Data</th>
-			<th>Hora</th>
-			<th>Dia</th>
-			<th>Café</th>
-			<th>Qtd</th>
-			<th>Preço</th>
-			<th></th>
-		</tr>
+		<thead class="thead-dark">
+			<tr>
+				<th>Data</th>
+				<th>Hora</th>
+				<th>Dia</th>
+				<th>Café</th>
+				<th>Qtd</th>
+				<th>Preço</th>
+				<th></th>
+			</tr>
+		</thead>
 		<?php
 		$consumption = listConsumption($conn);
 		foreach ($consumption as $entry)

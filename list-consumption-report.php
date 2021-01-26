@@ -6,8 +6,8 @@ include 'consumption-db.php';
 
 include 'report-variables.php';
 include 'report-header.php';
-include 'report-consumption-list.php';
-include 'report-totals.php';
+include 'report-consumption-table.php';
+include 'report-totals-table.php';
 include 'report-footer.php';
 ?>
 
@@ -25,7 +25,12 @@ include 'report-footer.php';
 			]);
 
 		var options = {
+			chartArea:{left:'20%',top:80,width:'75%',height:'100%'},
 			title: 'Cafés por dia da semana',
+			fontSize: 18,
+			legend: {alignment:'center', textStyle: {fontSize: 16, italic:true}},
+			colors: ['#4d7583', '#705d6a', '#904853', '#bb2c36', '#e90e16',
+					'#870f0f', '#400000', '#27343c', '#2f5156', '#6fa3a7'],
 			is3D: true
 		};
 
@@ -34,6 +39,7 @@ include 'report-footer.php';
 
 		google.visualization.events.addListener(chart, 'ready', function()
 		{
+			document.getElementById('create-pdf-btn').disabled = false;
 			chart_area.innerHTML = '<img src="' + chart.getImageURI() + '">';
 		});
 

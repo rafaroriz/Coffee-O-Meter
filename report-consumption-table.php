@@ -1,13 +1,15 @@
 <div id="report-content">
-    <table class="table">
-        <tr>
-            <th>Data</th>
-            <th>Hora</th>
-            <th>Dia</th>
-            <th>Café</th>
-            <th>Qtd</th>
-            <th>Preço</th>
-        </tr>
+    <table class="table table-sm">
+        <thead class="thead-dark">
+            <tr>
+                <th>Data</th>
+                <th>Hora</th>
+                <th>Dia</th>
+                <th>Café</th>
+                <th>Qtd</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
         <?php
         $consumption = listConsumption($conn);
         foreach ($consumption as $entry)

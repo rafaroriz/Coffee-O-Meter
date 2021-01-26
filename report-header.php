@@ -17,7 +17,8 @@
 				<div class="col-2">
 					<form name="create_pdf_form" method="post" action="">
 						<input type="hidden" name="hidden-html" id="hidden-html" value="" />
-						<button type="button" name="create-pdf-btn" class="btn btn-outline-danger" onclick="createPDF();">Gerar PDF</button>
+						<button type="button" name="create-pdf-btn" id="create-pdf-btn" class="btn btn-outline-danger"
+						onclick="createPDF();" disabled>Gerar PDF</button>
 					</form>
 				</div>
 			</div>
