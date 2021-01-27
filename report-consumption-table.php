@@ -1,5 +1,5 @@
 <div id="report-content">
-    <table class="table table-sm">
+    <table class="table table-sm table-bordered">
         <thead class="thead-dark">
             <tr>
                 <th>Data</th>

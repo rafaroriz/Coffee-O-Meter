@@ -34,12 +34,12 @@ include('user.php');
 					<li class="nav-item">
 						<a class="nav-link" href="add-type-form.php">Adiciona Tipo</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="logout.php">| Sair</a>
-					</li>
 				</ul>
 				<span class="navbar-text">
 					Usuário Logado: <?php echo $_SESSION["USER"]["EMAIL"] ?>
+				</span>
+				<span class="navbar-text">
+					<a class="nav-link text-light fas fa-sign-out-alt" href="logout.php"> | Sair</a>
 				</span>
 			</div>
 		</nav>

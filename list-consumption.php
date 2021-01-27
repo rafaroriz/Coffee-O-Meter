@@ -13,8 +13,11 @@ include 'consumption-db.php';
 		<div class="col-2 align-self-end">
 			<button class="btn btn-outline-dark text-right" onclick="window.open('list-consumption-report.php', '_blank')">Relatório</button>
 		</div>
-	</div><br/>
-	<table class="table table-striped table-bordered">
+	</div>
+	<br/>
+	<button class="btn btn-dark btn-lg btn-block" onclick="window.location.href='add-consumption-form.php'">Café++</button>
+	<br/>
+	<table class="table table-striped">
 		<thead class="thead-dark">
 			<tr>
 				<th>Data</th>
@@ -41,10 +44,10 @@ include 'consumption-db.php';
 				<td><?=$entry['coffee_name']?></td>
 				<td><?=$formated_qty?></td>
 				<td>R$ <?=number_format($entry['price'],2,',','.')?></td>
-				<td>
+				<td class="icon_cell">
 					<form name="remove-form" method="post" action="remove-consumption.php">
 						<input name="id" type="hidden" value="<?=$entry['id']?>" />
-						<button class="btn btn-danger btn-block">Remover</button>
+						<button class="btn btn-sm btn-outline-danger far fa-trash-alt"></button>
 					</form>
 				</td>
 			</tr>
@@ -52,7 +55,6 @@ include 'consumption-db.php';
 		}
 		?>
 	</table>
-	<button class="btn btn-dark btn-lg btn-block" onclick="window.location.href='add-consumption-form.php'">Café++</button>
 <?php
 include 'footer.php';
 ?>

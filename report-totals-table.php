@@ -1,6 +1,6 @@
 <h4>Totais</h4>
 <br/>
-<table class="table">
+<table class="table table-bordered text-center">
     <thead class="thead-dark">
         <tr>
             <th>Cafés</th>

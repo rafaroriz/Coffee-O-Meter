@@ -6,3 +6,7 @@
 .page_break {
     page-break-before: always;
 }
+
+.icon_cell {
+    width: 1rem;
+}
