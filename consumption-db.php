@@ -26,7 +26,7 @@ function listConsumptionByWeekDay($conn)
     $response = $instruction->get_result();
     while ($entry = $response->fetch_assoc())
     {
-        array_push($consumption, $entry);
+        $consumption[$entry['week_day']] = $entry['qty'];
     }
     return $consumption;
 }
